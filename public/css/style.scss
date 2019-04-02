@@ -1,0 +1,26 @@
+*{
+	font-family: sans-serif;
+}
+body{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+ main{
+	 display: flex;
+	 flex-wrap: wrap;
+ }
+
+ article{
+ 	width: 25%;
+ 	min-width: 17em;
+	h2{
+		text-align: center;
+	}
+ }
+
+ @media screen and (max-width: 560px) {
+   main{
+	   max-width: 17em;
+   }
+ }
