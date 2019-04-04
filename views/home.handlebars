@@ -1,13 +1,36 @@
 {{#each data}}
-<article>
-	<h2>{{room_name}}</h2>
+{{#if measurements.occupancy}}
+{{else}}
+<article class="">
+	<div>
+		<h2>{{room_name}}</h2>
+		<h3>{{occupancy measurements.occupancy}}</h3>
+		<button type="button" class="button_free" name="Book {{room_name}}">Reserveer ruimte</button>
+	</div>
 	<ul>
-		<!-- <li><b>Light level:</b> {{measurements.ambient_light}}</li> -->
 		<li><b>Temperatuur:</b> {{temp measurements.temperature}}°C </li>
-		<li><b>Co2:</b><span class="{{co2 measurements.co2}}">{{measurements.co2}} PPM</span></li>
-		<li><b>Luchtvochtigheid:</b> {{humidity measurements.humidity}}%</li>
-		<li><b>Volume:</b><span class="{{volumeSafe measurements.mic_level}}"> {{volume measurements.mic_level}} dB</span></li>
-		<li><b>Bezet:</b> {{occupancy measurements.occupancy}}</li>
+		<li class="{{co2 measurements.co2}}"><b>Co2:</b> {{co2 measurements.co2}} <span>({{measurements.co2}} PPM)</span></li>
+		<li><b>Luchtvochtigheid:</b> {{temp measurements.humidity}}%</li>
+		<li class="{{volumeSafe measurements.mic_level}}"><b>Volume:</b> {{volumeSafe measurements.mic_level}} <span> ({{volume measurements.mic_level}} dB)</span></li>
 	</ul>
 </article>
+{{/if}}
+{{/each}}
+
+{{#each data}}
+{{#if measurements.occupancy}}
+<article class="taken">
+	<div>
+		<h2>{{room_name}}</h2>
+		<h3>{{occupancy measurements.occupancy}}</h3>
+		<button type="button" class="button_watch" name="watch room" value="{{room_name}}">Watch</button>
+	</div>
+	<ul>
+		<li><b>Temperatuur:</b> {{temp measurements.temperature}}°C </li>
+		<li class="{{co2 measurements.co2}}"><b>Co2:</b> {{co2 measurements.co2}} <span>({{measurements.co2}} PPM)</span></li>
+		<li><b>Luchtvochtigheid:</b> {{temp measurements.humidity}}%</li>
+		<li class="{{volumeSafe measurements.mic_level}}"><b>Volume:</b> {{volumeSafe measurements.mic_level}} <span> ({{volume measurements.mic_level}} dB)</span></li>
+	</ul>
+</article>
+{{/if}}
 {{/each}}
