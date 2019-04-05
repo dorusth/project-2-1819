@@ -14,7 +14,7 @@
   font-weight: lighter;
   font-style: normal; }
 * {
-  font-family: Mirabeau;
+  font-family: Mirabeau, sans-serif;
   box-sizing: border-box; }
 
 html, body {
