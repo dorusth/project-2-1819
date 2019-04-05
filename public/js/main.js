@@ -19,6 +19,15 @@ window.addEventListener('load', () => {
 			e.path[2].classList.remove("reserved");
 		}
 	}
+	function toggleWatch (e){
+		if(e.path[0].innerHTML === "Watch"){
+			e.path[0].innerHTML = "Stop watching";
+			e.path[0].name = "watching";
+		}else{
+			e.path[0].innerHTML = "Watch";
+			e.path[0].name = "watch room";
+		}
+	}
 
 	let buttonsWatch = document.querySelectorAll(".button_watch");
 
@@ -39,7 +48,10 @@ window.addEventListener('load', () => {
 		)
 
 		for (var i = 0; i < buttonsWatch.length; i++) {
-			buttonsWatch[i].addEventListener("click", subscribeForm);
+			buttonsWatch[i].addEventListener("click", function(e){
+				subscribeForm(e)
+				toggleWatch(e)
+			});
 		}
 
 		const subscription = await register.pushManager.subscribe({
@@ -75,6 +87,7 @@ window.addEventListener('load', () => {
 							'content-type': 'application/json'
 						}
 					})
+					toggleWatch(e);
     			}, Math.floor(Math.random()*2000)*10)
 			}
 		}

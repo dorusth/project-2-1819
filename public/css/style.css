@@ -73,11 +73,12 @@ article {
   article div {
     display: flex;
     flex-direction: column;
-    justify-content: space-evenly; }
+    justify-content: space-between;
+    padding: 1em 0; }
     article div h2 {
       margin: 0; }
     article div button {
-      width: 8em;
+      width: 8.5em;
       padding: 0; }
   article ul {
     min-width: 13em;
