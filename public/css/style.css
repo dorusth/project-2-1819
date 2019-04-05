@@ -34,6 +34,9 @@ main {
 b {
   font-weight: normal; }
 
+button {
+  background: white; }
+
 h1 {
   color: #919191; }
 
